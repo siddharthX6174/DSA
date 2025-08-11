@@ -4,6 +4,7 @@ class node {
 public:
 	int data;
 	node* next;
+	node* prev;//For Doubly Linked List.
 
 	// self constructor
 	node() {
