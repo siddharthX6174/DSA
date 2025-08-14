@@ -25,7 +25,7 @@ Otherwise, pop the top, recursively insert x in the remaining stack, then push t
 
 void sortedinsert(stack<int> &st, int x) {
 	// Base case: stack is empty OR element to insert is greater than top element
-	if (st.empty() || x > st.top()) {
+	if (st.empty() || x < st.top()) {
 		st.push(x);
 		return;
 	}
@@ -59,3 +59,4 @@ int main() {
 
 	return 0;
 }
+
