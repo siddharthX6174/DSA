@@ -20,7 +20,7 @@ TreeNode<int>*BuildTree() {
 
 void Preorder(TreeNode<int>*root) {
 	if (root == NULL) {
-		return;
+		return; `
 	}
 	cout << root->val << " ";
 	Preorder(root->left);
@@ -209,7 +209,6 @@ pair<int, bool>IsHeightBalanced(TreeNode<int>*root) {
 
 	pair<int, bool>LSI = IsHeightBalanced(root->left);
 	pair<int, bool>RSI = IsHeightBalanced(root->right);
-
 
 	//Calculate the height and check the tree is balanced or not
 	//till this point simultanoeuly.
