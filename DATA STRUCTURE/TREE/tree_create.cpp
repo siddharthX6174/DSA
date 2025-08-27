@@ -138,6 +138,65 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 }
 
 
+// diameter problem
+/*
+ int maxi = 0;
+    int diameterOfBinaryTree(TreeNode* root) {
+        if (root == nullptr){
+            return 0;
+        }
+
+        int LSH = height(root->left);
+        int RSH = height(root->right);
+
+        maxi = max(maxi, LSH+RSH);
+
+        diameterOfBinaryTree(root->left);
+        diameterOfBinaryTree(root->right);
+
+        return maxi;
+
+    }
+
+*/
+// optimized ans
+/*
+int maxi=0; // dia
+
+int height(TreeNode* root){
+    if (root == nullptr){
+        return 0;
+    }
+    int lSH = height(root->left);
+    int RSH = height(root->right);
+    // update the dia maeter
+    maxi = max(maxi, lSH + RSH);
+
+    // return the current heiht of the subtree
+    return 1 + max(lSH, RSH);
+}
+int diameterOfBinaryTree(TreeNode* root) {
+    height(root);
+    return maxi;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main() {
 	cout << "Enter tree nodes in Preorder (-1 for NULL):\n";
 	TreeNode<int>* root = BuildTree();
