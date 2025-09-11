@@ -75,8 +75,23 @@ bool isbst(TreeNodeBst<int>* root, int mini = INT_MIN, int maxi = INT_MAX) {
 	}
 	// ky mera current node bst ki property hhold krta haii
 	bool op1 = 0;
-	if (root->val )
+	if (root->val >= mini and root->val <= maxi) {
+		op1 = 1;
 	}
+
+	// ky mera left subtree bst hai?
+	bool op2 = isbst(root->left, mini, root->val);
+
+	// ky mera right subtree bst hai?
+	bool op3 = isbst(root->right, root->val, maxi);
+
+	if (op1 == 1 and op2 == 1 and op3 == 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 int main() {
