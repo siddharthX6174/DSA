@@ -32,8 +32,6 @@ vector<int>Topview(TreeNode<int>* root) {
 
 }
 
-
-
 int main() {
 	TreeNode<int>* root = BuildTree();
 	bfs2(root);
