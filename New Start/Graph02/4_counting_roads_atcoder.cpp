@@ -3,21 +3,17 @@ using namespace std;
 
 template<typename T>
 class Graph {
-	map<T, T> mp;
 public:
-
 	map<T, int> degree;
 
 	void addEdge(T x, T y) {
-		mp[x] = y;
 		degree[x] += 1;
-		mp[y] = x;
 		degree[y] += 1;
 	}
 
-	void printAns() {
-		for (auto x : degree) {
-			cout << x.second << endl;
+	void printAns(int n) {
+		for (int i = 1; i <= n; i++) {
+			cout << degree[i] << endl;
 		}
 	}
 };
@@ -33,6 +29,6 @@ int main() {
 		gr.addEdge(x, y);
 	}
 
-	gr.printAns();
+	gr.printAns(n);
 	return 0;
 }
