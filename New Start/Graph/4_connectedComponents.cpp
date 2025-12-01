@@ -30,11 +30,6 @@ public:
 
 	void dfs() {
 		map<T, bool> visited;
-
-		for (auto x : mp) {
-			visited[x.first] = 0;
-		}
-
 		int count = 1;
 
 		for (auto x : mp) {
