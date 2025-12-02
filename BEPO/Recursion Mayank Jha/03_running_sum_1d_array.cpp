@@ -6,16 +6,16 @@
 #include <iostream>
 using namespace std;
 
-int solve(int* a, int index, int x) {
+void solve(int* a, int index, int x) {
 
-	if (index == x) {
-		return a[index];
+	if (index > x) {
+		return;
 	}
 
-	int ans =  a[index] + solve(a, index + 1, x);
-	return ans;
+	(a[index]) += (a[index - 1]);
+	solve(a, index + 1, x);
+	return;
 }
-
 
 int main() {
 	int n;
@@ -26,6 +26,11 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
-	cout << solve(a, 0, n - 1);
+
+	solve(a, 1, n - 1);
+
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << " ";
+	}
 
 }
