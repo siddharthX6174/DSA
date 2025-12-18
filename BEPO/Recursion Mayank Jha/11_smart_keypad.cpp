@@ -13,6 +13,7 @@ void solve(int i, int j) {
 		cout << output << endl;
 		return;
 	}
+
 	int current_digit = input[i] - '0';
 
 	//F(0)=table[current_digit][k]+F(1);
@@ -21,7 +22,7 @@ void solve(int i, int j) {
 	// task
 	for (int k = 0; table[current_digit][k] != '\0'; k++) {
 		output[j] = table[current_digit][k];
-		solve(i + 1, j + 1);
+		solve(i + 1, j + 1, res);
 	}
 }
 
