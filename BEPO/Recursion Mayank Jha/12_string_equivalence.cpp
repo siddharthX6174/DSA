@@ -12,7 +12,7 @@ void solve(int i, char max_character) {
 		return;
 	}
 
-	for (char ch = 'a'; ch <= max_charcter; ch++) {
+	for (char ch = 'a'; ch <= max_character; ch++) {
 		output[i] = ch;
 
 		if (ch == max_character) {
