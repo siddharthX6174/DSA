@@ -79,7 +79,26 @@ int main() {
 		container adapter k alwa hum iterators se use krte hai..
 	*/
 
-	int k[] {1, 2, 3, 4, 5, 6, 7};
+	int k[] {1, 2, 3, 3, 3, 3, 4, 5, 6, 7};
 	cout << binary_search(k, k + n, 7) << endl;
+
+	/*
+		lower bound and upper bound in stl return the address in case of ds and in case of
+		containers they return iterator that means if you are using lower and upper bound on ds like
+		array you can print the address very easily just by printing lower and upper bound but in case
+		of container you will not be able to print the upper and lower bound direclty as u cannot print
+		the iterators..
+	*/
+
+	cout << lower_bound(k, k + 10, 3) << endl;
+	// i want index
+
+	int index = lower_bound(k, k + 10, 3) - k;
+	cout << index << endl;
+
+	// count freq of 3
+
+	cout << (upper_bound(k, k + 10, 3) - k) - (lower_bound(k, k + 10, 3) - k) << endl;
+
 
 }

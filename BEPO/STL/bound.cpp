@@ -7,6 +7,12 @@
 	agar mid bda hai key se toh possible answer hai and tum left move karoge
 */
 
+/*
+	upper bound -> first element that is > x
+
+	freq of 3 -> idx (upper bound - lower bound)
+*/
+
 #include<iostream>
 using namespace std;
 
