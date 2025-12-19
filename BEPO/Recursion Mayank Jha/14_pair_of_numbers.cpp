@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 int target;
+#Define long long
 
 int solve(int x, int y) {
 
@@ -18,7 +19,7 @@ int solve(int x, int y) {
 	return min(op1, op2);
 }
 
-int main() {
+int32_t main() {
 	cin >> target;
 	int ans = solve(1, 1);
 	cout << ans << endl;
