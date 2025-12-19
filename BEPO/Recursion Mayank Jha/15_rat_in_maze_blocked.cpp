@@ -80,7 +80,6 @@ bool RatInMaze(int x, int y) {
 
 	solution[x][y] = 0; // backtrack
 	return false;
-
 }
 
 
