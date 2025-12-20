@@ -17,3 +17,8 @@ int main() {
 	}
 	cout << endl;
 }
+
+/*
+replaces meaning doesn't allocates memory earlier when the complier runs than the memory is allocated..
+it also overseeds everything
+*/
