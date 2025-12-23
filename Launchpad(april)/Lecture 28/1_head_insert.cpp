@@ -93,30 +93,30 @@ node* MidPoint3 (node* head) {
 
 
 // seraching the element in iterative way
-bool SearchIterative (node* head, key) {
-	while (head != nullptr) {
-		if (head->data == key) return true;
-		head = head->next;
-	}
-	return false;
-}
+// bool SearchIterative (node* head, key) {
+// 	while (head != nullptr) {
+// 		if (head->data == key) return true;
+// 		head = head->next;
+// 	}
+// 	return false;
+// }
 
-// searching recursive way
-bool SearchRecursive (node* head, key) {
-	// base
-	if (head == nullptr) {
-		return false;
-	}
+// // searching recursive way
+// bool SearchRecursive (node* head, key) {
+// 	// base
+// 	if (head == nullptr) {
+// 		return false;
+// 	}
 
-	// task
-	if (head->data == key) {
-		return true;
-	}
+// 	// task
+// 	if (head->data == key) {
+// 		return true;
+// 	}
 
-	bool ans = SearchRecursive(head->next, key);
+// 	bool ans = SearchRecursive(head->next, key);
 
-	return ans;
-}
+// 	return ans;
+// }
 
 int main() {
 	node* head = nullptr;
@@ -135,11 +135,11 @@ int main() {
 	}
 
 	print(head);
-	std::cout << "length of linked list : " << Length(head) << std::endl;
-	std::cout << "midPoint1 : " << MidPoint1(head) << std::endl;
-	std::cout << "MidPoint2 : " << MidPoint2(head) << std::endl;
+	// std::cout << "length of linked list : " << Length(head) << std::endl;
+	// std::cout << "midPoint1 : " << MidPoint1(head) << std::endl;
+	// std::cout << "MidPoint2 : " << MidPoint2(head) << std::endl;
 
-	std::cout << "MidPoint3 : " << MidPoint3(head)->data << std::endl;
+	// std::cout << "MidPoint3 : " << MidPoint3(head)->data << std::endl;
 
 
 }
