@@ -54,6 +54,22 @@ void reverseList(ListNode* &head) {
 	head = prev;
 }
 
+ListNode* recursiveReverse(ListNode* &head) {
+	// base case
+	if (head == nullptr or head->next == nullptr) {
+		return head;
+	}
+
+	// reverse
+	ListNode* new_head = recursiveReverse(head->next);
+
+	ListNode* current = head;
+	current->next->next = current;
+	current->next = nullptr;
+
+	return new_head;
+}
+
 int main() {
 	ListNode* head = nullptr;
 	int a{};
@@ -68,4 +84,7 @@ int main() {
 	reverseList(head);
 
 	Print(head);
+
+	ListNode* head2 = recursiveReverse(head);
+	Print(head2);
 }
