@@ -59,6 +59,48 @@ bool isCycle(ListNode* &head) {
 	return false;
 }
 
+
+void breakCycle(ListNode* &head) {
+	ListNode* slow = head;
+	ListNode* fast = head;
+
+	while (fast != nullptr and fast->next != nullptr) {
+		slow = slow->next;
+		fast = fast->next->next;
+
+		if (slow == fast) break;
+	}
+
+	// Now slow and fast are at meeting point inside the loop somewhere.. make prev at fast se just before.. and slow at head
+	slow = head;
+
+	ListNode* prev = head;
+	while (prev->next != fast) {
+		prev = prev->next;
+	}
+
+	/*
+		now ->
+			fast -> meeting point
+			slow -> head
+			prev -> just before fast
+
+		now move 1 step slow and fast upto they meet
+	*/
+
+	while (slow != fast) {
+		slow = slow->next;
+		fast = fast->next;
+		prev = prev->next;
+	}
+
+	// prev is just before the loop creating starting point make prev-> next as null now..
+	prev->next = nullptr; // cycle is now break...
+
+
+}
+
+
 int main() {
 	ListNode* head = nullptr;
 	int a{};
