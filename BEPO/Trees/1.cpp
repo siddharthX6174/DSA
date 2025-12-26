@@ -19,6 +19,7 @@ public:
 	}
 };
 
+// input type format 1
 node* buildtree() {
 	int x{};
 	cin >> x;
@@ -58,6 +59,37 @@ void Postorder(node* root) {
 }
 
 
+// funcitons
+//count nodes of a tree
+int CountNodes(node* root) {
+
+	if (root == nullptr) {
+		return 0;
+	}
+
+	int left_Subtree = CountNodes(root->left);
+	int right_Subtree = CountNodes(root->right);
+
+	int ans = left_Subtree + right_Subtree + 1;
+	return ans;
+}
+
+// sum of nodes
+int sum_nodes(node* root) {
+	if (root == nullptr) {
+		return 0;
+	}
+
+	int left_Subtree = sum_nodes(root->left);
+	int right_Subtree = sum_nodes(root->right);
+	int ans = left_Subtree + right_Subtree + root->data;
+	return ans;
+}
+
+
+// height, mirror , diameter
+
+
 
 int main() {
 	node* root = buildtree();
@@ -73,6 +105,9 @@ int main() {
 	cout << "Postorder: ";
 	Postorder(root);
 	cout << "\n";
+
+	cout << "number of nodes : " << CountNodes(root) << "\n";
+	cout << "sum of nodes : " << sum_nodes(root) << "\n";
 
 	return 0;
 }
