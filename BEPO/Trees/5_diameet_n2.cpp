@@ -68,11 +68,55 @@ int diameter(TreeNode* root) {
 	return max(max(lsd, rsd), RootDiameter);
 }
 
+
+
+// optimized diamter
+class Pair1 {
+public:
+	int height;
+	int diameter;
+	Pair1() {
+		height = 0;
+		diameter = 0;
+	}
+	Pair1(int height, int diameter) {
+		this->height = height;
+		this->diameter = diameter;
+	}
+};
+
+Pair1 p; // making an object
+// using post order traversal
+Pair1 fastDiameter(TreeNode* root) {
+	if (root == nullptr) {
+		p.height = 0;
+		p.diameter = 0;
+		return p;
+	}
+
+	// left call and right call
+	Pair1 left_sub_tree = fastDiameter(root->left);
+	Pair1 right_sub_tree = fastDiameter(root->right);
+
+	// task
+
+	p.height = max(left_sub_tree.height, right_sub_tree.height) + 1;
+
+	int op1 = left_sub_tree.diameter;
+	int op2 = right_sub_tree.diameter;
+	int op3 = (left_sub_tree.height + right_sub_tree.height);
+	p.diameter = (max(max(op1, op2), op3));
+
+	return p;
+}
+
 int main() {
 	TreeNode* root = buildtree();
 
 	Preorder(root);
 	cout << "\n";
+
+	cout << fastDiameter(root).diameter ;
 
 
 }
