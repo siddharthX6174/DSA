@@ -1,66 +1,57 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool check(int n) {
-	string s = to_string(n);
-	map<char, int>mp;
-	for (auto c : s) {
-		mp[c]++;
-	}
-	// merepas frequency storre hochuki hai sabki ab count check karo
-	int i = mp[s[0]];
-	for (auto x : mp) {
-		if (x.second != i) {
-			return false;
+class Solution {
+public:
+	long long countWays = 0;
+	int n;
+	vector<vector<int>> grid;
+	const int MOD = 1e9 + 7;
+
+	void solve(int row, int col) {
+		// if all rows are filled
+		if (row == n) {
+			countWays = (countWays + 1) % MOD;
+			return;
+		}
+
+		// move to next row
+		if (col == 3) {
+			solve(row + 1, 0);
+			return;
+		}
+
+		// try all 3 colors
+		for (int color = 0; color < 3; color++) {
+
+			// check left cell
+			if (col > 0 && grid[row][col - 1] == color)
+				continue;
+
+			// check upper cell
+			if (row > 0 && grid[row - 1][col] == color)
+				continue;
+
+			grid[row][col] = color;     // place color
+			solve(row, col + 1);        // recurse
+			grid[row][col] = -1;        // backtrack
 		}
 	}
-	return true;
-}
+
+	long long numOfWays(int n) {
+		this->n = n;
+		grid.assign(n, vector<int>(3, -1));
+		solve(0, 0);
+		return countWays;
+	}
+};
 
 int main() {
-	int n{};
+	int n;
 	cin >> n;
 
-	vector<int> arr;
+	Solution sol;
+	cout << sol.numOfWays(n) << endl;
 
-	int a;
-	while (cin >> a) {
-		arr.push_back(a);
-	}
-
-	for (int i = 0; i < n; i++) {
-		if (check(arr[i])) {
-			cout << arr[i] << " ";
-		}
-	}
 	return 0;
 }
-
-/*
-n = 7
-n-2) -> arr = {1 2 4 6 7
-}
-
-3 5
-
-cost 0(n) O (1)
-*/
-
-
-/*
-	array input of size of n
-	elemnts of aray 1->1e4
-	stable:
-		each digit has same frequewncy in a given number
-			123
-			1-1
-			2-1
-			3-1
-
-			print stable number
-
-			n = 3
-
-			12 122 1122
-
-*/
