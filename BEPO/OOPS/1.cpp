@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 /*
@@ -14,6 +14,23 @@ public:
 	double Mileage;
 	char Name[100];
 
+	// Default Constructor
+	Car() {
+		cout << "Default Constructor" << endl;
+	}
+
+	// you can make your own parameterised constructor Car() pass variables in it
+	// Constructor Overloading
+
+	// making my own copy constrcutor
+	Car(Car &l) {
+		Price = l.Price;
+		Model = l.Model;
+		Condition = l.Condition;
+		Mileage = l.Mileage;
+		strcpy(Name, l.Name);
+	}
+
 	// setters
 	void Set_Price(double discount) {
 		if (discount < 15) {
@@ -27,8 +44,6 @@ public:
 	int  Get_Price() {
 		return Price;
 	}
-
-
 
 	void print() {
 		cout << Model << "\n";
@@ -56,10 +71,19 @@ int main() {
 
 	c.print();
 
-
 	c.Set_Price(9);
 	cout << c.Get_Price() << endl;
+	cout << "-------------\n";
 
+	Car f(c);
+	f.print();
 
 	return 0;
 }
+
+/*
+	1. Constructor
+	2. Copy Constructor
+	3. Copy Assignment Operator
+	4. Destructor
+*/
