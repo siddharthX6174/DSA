@@ -20,7 +20,7 @@ int main() {
 	// 	     << " --> " << x.second << endl;
 	// }
 
-	multimap<char, int> mp2;
+	multimap<char, int> mp2;  // RBT
 	for (int i = 0; i < n; i++) {
 		int x;
 		char ch;
@@ -32,8 +32,5 @@ int main() {
 	for (auto x : mp2) {
 		cout << x.first << " " << x.second << "\n";
 	}
-	return 0;
-
-
 	return 0;
 }
