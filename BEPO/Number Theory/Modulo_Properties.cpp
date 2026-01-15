@@ -53,9 +53,8 @@ int FastPowerV2(int x, int y) {
 	return result;
 }
 
-
 // (x/y)%P
-/*
+/*z
 	Inverse of y with respect to p:
 
 	(y^-1) % P:
@@ -72,7 +71,6 @@ int Inverse(int y) {
 int Division(int x, int y) {
 	return (Multiply(x, Inverse(y)));
 }
-
 
 // O(n) : Large Factorial->....
 void calculate_Factorial() {
