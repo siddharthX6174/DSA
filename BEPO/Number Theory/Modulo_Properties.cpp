@@ -94,6 +94,7 @@ int npr(int n, int r) {
 	*/
 	return Multiply(Fact[n], Inverse(Fact[n - r]));
 }
+
 int32_t main() {
 
 	cout << FastPowerV2(3, 8) << endl;
