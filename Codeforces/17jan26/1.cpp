@@ -17,6 +17,7 @@ int main() {
 			} else {
 				a.push_back({x, false});
 			}
+
 		}
 
 		sort(a.begin(), a.end());
