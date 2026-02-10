@@ -16,6 +16,32 @@ using namespace std;
 
 class Strategy {
 public:
-	int* ordrqty;
-	Strategy(int orderqty)
+	int* order_qty;
+	Strategy(int order_qty) : order_qty(new int (order_qty)) {
+		cout << "Strategy class constructor called" << endl;
+	}
+
+	void fun() {
+		cout << "This is Strategy class fun" << endl;
+	}
+
+	~Strategy() {
+		cout << "Strategy class destructor called" << endl;
+		delete order_qty;
+	}
+};
+
+int main() {
+
+	// Strategy obj(19);
+
+	// obj.fun();
+
+	Strategy* obj = new Strategy(100);
+	obj->fun();
+	//obj->~Strategy();
+	delete obj;
+
+
+	return 0;
 }
