@@ -17,61 +17,45 @@ public:
 	//----------------------------------------------------------
 	// deep copy constructor
 	circularlist(const circularlist& lst) : head(nullptr) {
-
 		if (lst.head == nullptr) {
 			return;
 		}
-
 		// copy first node
-
 		head = new node(lst.head->data);
-
 		node* currNew = head;
 		node* currOld = lst.head->next;
-
 		// copy remaining nodes
 		while (currOld != lst.head) {
 			currNew->next = new node(currOld->data);
 			currNew = currNew->next;
 			currOld = currOld->next;
 		}
-
 		currNew->next = head;
-
 	}
 
 
-	// copy assignmanet operartor =
-
+	// copy assignmanet operartor=
 	circularlist& operator=(const circularlist& other) {
-
 		// 1️⃣ Self-assignment check
 		if (this == &other)
 			return *this;
-
 		// 2️⃣ Delete existing list
 		this->~circularlist();
-
 		// 3️⃣ If other list is empty
 		if (other.head == nullptr) {
 			head = nullptr;
 			return *this;
 		}
-
 		// 4️⃣ Deep copy (same logic as copy constructor)
 		head = new node(other.head->data);
-
 		node* currNew = head;
 		node* currOld = other.head->next;
-
 		while (currOld != other.head) {
 			currNew->next = new node(currOld->data);
 			currNew = currNew->next;
 			currOld = currOld->next;
 		}
-
 		currNew->next = head;  // make circular
-
 		return *this;
 	}
 
